@@ -1,6 +1,6 @@
-package lesson4.repository;
+package lesson5.repository;
 
-import lesson4.domain.ProductinShop;
+import lesson5.domain.ProductinShop;
 
 import javax.persistence.EntityManager;
 
@@ -58,24 +58,6 @@ public class InitData {
         PRODUCT_10 = em.merge(PRODUCT_10);
         em.getTransaction().commit();
     }
-
-    public static ProductinShop getProduct1() {
-        return PRODUCT_1;
-    }
-
-    public static ProductinShop getProduct2() {
-        return PRODUCT_2;
-    }
-
-    public static ProductinShop getProduct3() {
-        return PRODUCT_3;
-    }
-
-    public static ProductinShop getProduct4() {
-        return PRODUCT_4;
-    }
-
-    public static ProductinShop getProduct5() {
-        return PRODUCT_5;
-    }
 }
+
+

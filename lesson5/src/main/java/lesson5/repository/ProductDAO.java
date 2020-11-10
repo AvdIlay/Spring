@@ -1,14 +1,12 @@
-package lesson4.repository;
+package lesson5.repository;
 
-import lesson4.domain.ProductinShop;
+import lesson5.domain.ProductinShop;
 
 import java.util.List;
 
 public interface ProductDAO {
     List<ProductinShop> findAll();
-
     List<ProductinShop> findByPages(int id);
-
     ProductinShop findById(Long id);
     ProductinShop findmaxPrice();
     ProductinShop findminPrice();

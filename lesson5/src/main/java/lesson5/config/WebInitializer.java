@@ -1,4 +1,4 @@
-package lesson4.config;
+package lesson5.config;
 
 import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.filter.HiddenHttpMethodFilter;

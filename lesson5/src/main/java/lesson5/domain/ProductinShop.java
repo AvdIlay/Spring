@@ -1,4 +1,4 @@
-package lesson4.domain;
+package lesson5.domain;
 
 import javax.persistence.*;
 import java.util.Objects;

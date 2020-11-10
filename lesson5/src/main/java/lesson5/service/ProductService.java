@@ -1,9 +1,10 @@
-package lesson4.service;
+package lesson5.service;
 
-import lesson4.domain.ProductinShop;
-import lesson4.repository.ProductImplDAO;
+import lesson5.domain.ProductinShop;
+import lesson5.repository.ProductImplDAO;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -48,9 +49,10 @@ public class ProductService {
                 .sorted(Comparator.comparingDouble(ProductinShop::getPrice))
                 .collect(Collectors.toList());
     }
-
+    @Transactional
     public void save(ProductinShop product){
-         productImplDAO.save(product);
+        productImplDAO.save(product);
+
     }
 
     public void removeById(Long id){
