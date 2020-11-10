@@ -81,6 +81,11 @@ public class ProductController {
         return "redirect:/products";
     }
 
+    @GetMapping("/filter")
+    public String getFormFilter(){
+        return "filter";
+    }
+
     // http://localhost:8080/app/products/any
     @RequestMapping(value = "any")
     @ResponseBody
