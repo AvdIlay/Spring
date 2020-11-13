@@ -1,7 +1,7 @@
-package lesson5.controller;
+package lesson6.controller;
 
-import lesson5.domain.ProductinShop;
-import lesson5.service.ProductService;
+import lesson6.domain.ProductinShop;
+import lesson6.service.ProductService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;

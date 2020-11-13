@@ -1,18 +1,20 @@
-package lesson5.service;
+package lesson6.service;
 
-import lesson5.domain.ProductinShop;
-import lesson5.repository.ProductDAO;
-import org.springframework.stereotype.Repository;
+import lesson6.domain.ProductinShop;
+import lesson6.repository.ProductDAO;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.persistence.EntityManager;
 import java.util.List;
 
 @Service
 public class ProductImplDAO implements ProductService {
 
-    private final ProductDAO productDAO;
+    private ProductDAO productDAO;
 
+    public ProductImplDAO(){
+
+    }
     public ProductImplDAO(ProductDAO productDAO) {
         this.productDAO = productDAO;
     }
