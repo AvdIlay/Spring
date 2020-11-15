@@ -5,6 +5,7 @@ import lesson6.domain.ProductinShop;
 
 import java.util.List;
 
+
 public interface ProductService {
     List<ProductinShop> getAll();
 
@@ -13,4 +14,8 @@ public interface ProductService {
     ProductinShop save(ProductinShop product);
 
     List<ProductinShop> getByPrice(double priceFrom, double priceTo);
+
+    List<ProductinShop> update(ProductinShop product);
+
+    List<ProductinShop> getByPages(int id);
 }

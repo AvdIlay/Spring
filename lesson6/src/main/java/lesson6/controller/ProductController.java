@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping("/products")
@@ -19,7 +20,7 @@ public class ProductController {
         this.productService = productService;
     }
 
-    // http://localhost:8080/app/products - GET
+    // http://localhost:8080/myapp/products - GET
     @GetMapping()
     public String list(Model model){
         List<ProductinShop> products = productService.getAll();
@@ -27,7 +28,7 @@ public class ProductController {
         return "list";
     }
 
-    /*@GetMapping(params = {"idparam","titleparam", "priceparam"})
+    @GetMapping(params = {"idparam","titleparam", "priceparam"})
     public String updateBD(Model model,
                            @RequestParam(name = "idparam") Long idparam,
                            @RequestParam (name = "titleparam")String titleparam,
@@ -45,10 +46,10 @@ public class ProductController {
         model.addAttribute("page", id);
         model.addAttribute("next", id+1);
         model.addAttribute("back", id-1);
-        return "page";
-    }*/
+        return "pages";
+    }
 
-    // http://localhost:8080/app/products/1 - GET
+    // http://localhost:8080/myapp/products/1 - GET
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public String getById(Model model,@PathVariable("id") Long id){
         ProductinShop byId = productService.getById(id);
@@ -56,25 +57,11 @@ public class ProductController {
                 byId == null ? new ProductinShop(): byId);
         return "products";
     }
-    /*@RequestMapping("/max")
-    public String getmaxPrice(Model model){
-        ProductinShop product = productService.getmaxPrice();
-        model.addAttribute("products", product);
-        return "products";
-    }
-    @RequestMapping("/min")
-    public String getminPrice(Model model){
-        ProductinShop product = productService.getminPrice();
-        model.addAttribute("products", product);
-        return "products";
-    }*/
 
-    // http://localhost:8080/app/products/1/price - GET
-    @RequestMapping(value = "/{id}/price", method = RequestMethod.GET)
-    @ResponseBody
-    public String apiPrice(@PathVariable Long id){
-        ProductinShop byId = productService.getById(id);
-        return String.valueOf(byId == null ? null : byId.getPrice());
+
+    @GetMapping("/filter")
+    public String getFormFilter(){
+        return "filter";
     }
 
     // http://localhost:8080/app/products/new - GET
@@ -97,19 +84,7 @@ public class ProductController {
         return "redirect:/products";
     }
 
-    @GetMapping("/filter")
-    public String getFormFilter(){
-        return "filter";
-    }
-
-    // http://localhost:8080/app/products/any
-    @RequestMapping(value = "any")
-    @ResponseBody
-    public String anyRequest(){
-        return "any request " + UUID.randomUUID().toString();
-    }
-
-    // http://localhost:8080/app/products?from=35.4&to=3
+    // http://localhost:8080/myapp/products?from=35.4&to=3
     @GetMapping(params = {"from", "to"})
     public String productsByPrice(Model model,
                                   @RequestParam(name = "from") double from,

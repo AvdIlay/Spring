@@ -1,18 +1,20 @@
 server:
-port: 8080
+  port: 8082
+  servlet:
+    context-path: /app
 spring:
-mvc:
-static-path-pattern:
-jpa:
-hibernate:
-ddl-auto:
-datasource:
-url: jdbc:postgresql://localhost:5432/postgres
-username: postgres
-password: 963852
-driver-class-name: org.postgresql.Driver
+  mvc:
+    static-path-pattern:
+  jpa:
+    hibernate:
+      ddl-auto:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: 963852
+    driver-class-name: org.postgresql.Driver
 management:
-endpoints:
-web:
-exposure:
-include: info, health, beans, mappings
+  endpoints:
+    web:
+      exposure:
+        include: info, health, beans, mappings
