@@ -1,4 +1,4 @@
-package lesson5.controller;
+package lesson6.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

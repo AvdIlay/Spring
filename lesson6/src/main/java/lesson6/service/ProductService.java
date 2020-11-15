@@ -1,12 +1,9 @@
-package lesson5.service;
+package lesson6.service;
 
-import lesson5.domain.ProductinShop;
-import org.springframework.stereotype.Service;
+import lesson6.domain.ProductinShop;
 
 
-import java.util.Comparator;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public interface ProductService {
     List<ProductinShop> getAll();
