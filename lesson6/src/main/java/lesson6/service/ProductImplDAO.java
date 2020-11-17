@@ -2,19 +2,18 @@ package lesson6.service;
 
 import lesson6.domain.ProductinShop;
 import lesson6.repository.ProductDAO;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import javax.persistence.EntityManager;
 import java.util.List;
 
 @Service
 public class ProductImplDAO implements ProductService {
 
-    private ProductDAO productDAO;
+    private final ProductDAO productDAO;
 
-    public ProductImplDAO(){
-
-    }
     public ProductImplDAO(ProductDAO productDAO) {
         this.productDAO = productDAO;
     }
@@ -38,4 +37,16 @@ public class ProductImplDAO implements ProductService {
     public List<ProductinShop> getByPrice(double priceFrom, double priceTo) {
         return productDAO.findAllByPriceBetween(priceFrom, priceTo);
     }
+
+    @Override
+    public List<ProductinShop> update(ProductinShop productinShop) {
+        productDAO.update(productinShop.getId(), productinShop.getTitle(), productinShop.getPrice());
+        return productDAO.findAll();
+    }
+
+    @Override
+    public List<ProductinShop> getByPages(int id) {
+        return productDAO.findByPages(id);
+    }
+
 }
