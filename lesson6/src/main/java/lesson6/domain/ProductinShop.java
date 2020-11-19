@@ -7,12 +7,13 @@ import java.util.Objects;
 @Table(name = "productsinshop")
 public class ProductinShop {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue
     private Long id;
-    @Column(name = "title")
-    private String title;
     @Column(name = "price")
     private double price;
+    @Column(name = "title")
+    private String title;
+
 
     public ProductinShop() {
     }

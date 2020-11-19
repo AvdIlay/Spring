@@ -7,12 +7,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.UUID;
-import java.util.stream.Collectors;
+
 
 @Controller
 @RequestMapping("/products")
 public class ProductController {
+
 
     private final ProductService productService;
 
@@ -63,10 +63,11 @@ public class ProductController {
 
     // http://localhost:8080/app/products/new - GET
     @GetMapping("/new")
-    public String getFormNewProduct(Model model){
+    public String getFormNewProduct(Model model) {
         model.addAttribute("product", new ProductinShop());
         return "new-product";
     }
+
     @GetMapping("/edit")
     public String getFormEdit(Model model){
         List<ProductinShop> products = productService.getAll();
@@ -91,4 +92,3 @@ public class ProductController {
         return "list";
     }
 }
-

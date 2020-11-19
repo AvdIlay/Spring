@@ -1,7 +1,7 @@
 server:
-  port: 8087
+  port: 8083
   servlet:
-    context-path: /app
+    context-path:
 spring:
   mvc:
     static-path-pattern:
