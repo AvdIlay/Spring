@@ -1,7 +1,7 @@
 package lesson6.service;
 
 import lesson6.domain.User;
-import lesson6.repository.UserDao;
+import lesson6.repository.UserDAO;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
@@ -12,9 +12,9 @@ import java.util.Objects;
 @Service
 public class ServiceImpl implements UserService {
 
-    private final UserDao userDao;
+    private final UserDAO userDao;
 
-    public ServiceImpl(UserDao userDao) {
+    public ServiceImpl(UserDAO userDao) {
         this.userDao = userDao;
     }
 
